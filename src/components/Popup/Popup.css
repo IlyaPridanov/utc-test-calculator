@@ -1,0 +1,84 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .screen-1, .screen-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .terms {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .terms button {
+    padding: 10px;
+    border: 0px solid black;
+
+    cursor: pointer;
+    width: 39;
+height: 36;
+top: 305px;
+left: 215px;
+border-radius: 50px;
+padding-top: 6px;
+padding-right: 12px;
+padding-bottom: 6px;
+padding-left: 12px;
+gap: 12px;
+
+  }
+  
+  .terms button.active {
+   
+    background: linear-gradient(0deg, #FF5E56, #FF5E56),
+linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%);
+
+  }
+  
+  .results {
+    text-align: center;
+  }

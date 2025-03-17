@@ -1,0 +1,19 @@
+.button {
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 16px 32px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+    color: white;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    box-shadow: inset 0px 0px 44px 0px rgba(207, 218, 231, 0.2);
+    background: none;
+  }
+  
+  .button:hover {
+    opacity: 0.6;
+  }
