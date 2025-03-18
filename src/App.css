@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'LabGrotesque';
   src: url('./fonts/LabGrotesque-Regular.woff2') format('woff2'),
-       url('./fonts/LabGrotesque-Regular.woff') format('woff'),
-       url('./fonts/LabGrotesque-Regular.eot') format('eot'),
-       url('./fonts/LabGrotesque-Regular.ttf') format('truetype');
+    url('./fonts/LabGrotesque-Regular.woff') format('woff'),
+    url('./fonts/LabGrotesque-Regular.eot') format('eot'),
+    url('./fonts/LabGrotesque-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -11,9 +11,9 @@
 @font-face {
   font-family: 'LabGrotesque';
   src: url('./fonts/LabGrotesque-Medium.woff2') format('woff2'),
-       url('./fonts/LabGrotesque-Medium.woff') format('woff'),
-       url('./fonts/LabGrotesque-Medium.eot') format('eot'),
-       url('./fonts/LabGrotesque-Medium.ttf') format('truetype');
+    url('./fonts/LabGrotesque-Medium.woff') format('woff'),
+    url('./fonts/LabGrotesque-Medium.eot') format('eot'),
+    url('./fonts/LabGrotesque-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
@@ -31,4 +31,10 @@
 
 body {
   font-family: 'LabGrotesque', 'Arial', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }

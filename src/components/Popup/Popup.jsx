@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import closeIcon from '../../img/icon-close.svg'; 
 import './Popup.css';
 
 const Popup = ({ onClose }) => {
@@ -7,6 +8,12 @@ const Popup = ({ onClose }) => {
   const [selectedTerm, setSelectedTerm] = useState(12);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
   const [annualPayment, setAnnualPayment] = useState(0);
+  const [periodTerm, setPeriodTerm] = useState('MONTH');
+  
+  const PERIOD_NAME = {
+      'MONTH': monthlyPayment.toFixed(2),
+      'ANNUAL': annualPayment.toFixed(2),
+  };
 
   const handleCalculate = () => {
     const amount = parseFloat(loanAmount);
@@ -29,34 +36,50 @@ const Popup = ({ onClose }) => {
     }
   };
 
+  const handlePeriodChange = (period) => {
+    setPeriodTerm(period);
+  };
+
   return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-button" onClick={onClose}>×</button>
+    <div className="popup" onClick={onClose}>
+      <div className="popup__content" onClick={(e) => e.stopPropagation()}>
+        <button className="popup__close-button" onClick={onClose}>
+            <img src={closeIcon} alt="Закрыть" /> 
+        </button>
         {screen === 1 ? (
-          <div className="screen-1">
-            <h2>Введите сумму кредита</h2>
-            <input
-              type="number"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(e.target.value)}
-              placeholder="Сумма кредита"
-            />
-            <button onClick={handleCalculate}>Рассчитать</button>
+          <div className="popup__screen screen-1">
+            <h2 className='h2 popup__caption'>Платежи по кредиту</h2>
+            <label className='popup__label'>
+                <span>Ваша сумма кредита </span>
+                <input
+                type="number"
+                value={loanAmount}
+                className='input'
+                onChange={(e) => setLoanAmount(e.target.value)}
+                placeholder="Сумма кредита"
+                />
+            </label>
+            <button className='popup__button button' onClick={handleCalculate}>Рассчитать</button>
           </div>
         ) : (
-          <div className="screen-2">
-            <h2>Результаты расчета</h2>
-            <div className="terms">
-              <button className={selectedTerm === 12 ? 'active' : ''} onClick={() => handleTermChange(12)}>12</button>
-              <button className={selectedTerm === 24 ? 'active' : ''} onClick={() => handleTermChange(24)}>24</button>
-              <button className={selectedTerm === 36 ? 'active' : ''} onClick={() => handleTermChange(36)}>36</button>
-              <button className={selectedTerm === 48 ? 'active' : ''} onClick={() => handleTermChange(48)}>48</button>
+          <div className="popup__screen screen-2">
+            <h2 className='h2 popup__caption'>Результаты расчета</h2>
+            <div className="popup__terms-row">
+                <p className="popup__terms-text">Количество месяцев?</p>
+                <div className="popup__terms">
+                    <button className={selectedTerm === 12 ? 'active' : ''} onClick={() => handleTermChange(12)}>12</button>
+                    <button className={selectedTerm === 24 ? 'active' : ''} onClick={() => handleTermChange(24)}>24</button>
+                    <button className={selectedTerm === 36 ? 'active' : ''} onClick={() => handleTermChange(36)}>36</button>
+                    <button className={selectedTerm === 48 ? 'active' : ''} onClick={() => handleTermChange(48)}>48</button>
+                </div>
             </div>
-            <div className="results">
-              <p>Ежемесячный платеж: {monthlyPayment.toFixed(2)} рублей</p>
-              <p>Ежегодный платеж: {annualPayment.toFixed(2)} рублей</p>
+            <div className="popup__terms-row">
+                <div className="popup__terms">
+                    <button className={periodTerm === 'MONTH' ? 'active' : ''} onClick={() => handlePeriodChange('MONTH')}>в месяц</button>
+                    <button className={periodTerm === 'ANNUAL' ? 'active' : ''} onClick={() => handlePeriodChange('ANNUAL')}>в год</button>
+                </div>
             </div>
+            <p className="popup__result">{PERIOD_NAME[periodTerm]} рублей</p>
           </div>
         )}
       </div>
