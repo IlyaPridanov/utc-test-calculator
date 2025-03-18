@@ -74,6 +74,7 @@ const Popup = ({ onClose }) => {
                 </div>
             </div>
             <div className="popup__terms-row">
+            <p className="popup__terms-text">Итого ваш платеж по кредиту:</p>
                 <div className="popup__terms">
                     <button className={periodTerm === 'MONTH' ? 'active' : ''} onClick={() => handlePeriodChange('MONTH')}>в месяц</button>
                     <button className={periodTerm === 'ANNUAL' ? 'active' : ''} onClick={() => handlePeriodChange('ANNUAL')}>в год</button>
